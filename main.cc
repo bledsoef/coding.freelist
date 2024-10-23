@@ -13,6 +13,8 @@ long int* RAM; // basically simulating RAM at the start of this
 int main() {
   RAM = new long int[8192];
 
+  cout << RAM << "\n";
+
   freeList me(RAM,8192);
   me.print();
 

@@ -56,11 +56,17 @@ freeList::reserve_space(int size) // malloc
 
 void freeList::free_space(long int *location)
 {
-  //
+  long int *temp_head = (long int *)head;
+  long int *new_head = location - 2; // compute the header location from sptr
+
+  // set the pointer of our header to point to head and set head to our new entry
+  new_head[1] = (long int) temp_head;
+  head = new_head;
 }
 
 void freeList::coalesce_forward()
 {
+  
 }
 
 // print() is given to you. It traverses the free list and prints out what is there.

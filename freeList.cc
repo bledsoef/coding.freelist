@@ -9,7 +9,7 @@ freeList::freeList(long int *inRAM, int size)
     // create a header and an item in the list that occupies all of ram
 
     head = inRAM;
-    head[0] = size - 8;
+    head[0] = size - 2;
     head[1] = NULL;
   }
 }
@@ -64,7 +64,7 @@ void freeList::free_space(long int *location)
   while (temp_head != NULL && temp_head < new_head)
   {
     prev_head = temp_head;
-    temp_head = (long int *)temp_head[1]; // Move to the next block
+    temp_head = (long int *)temp_head[1];
   }
 
   // set the pointer of our header to point to head and set head to our new entry

@@ -16,19 +16,27 @@ int main() {
   freeList me(RAM,8192);
   me.print();
 
+  printf("reserving 100\n");
   long int* addr1 = me.reserve_space(100);
   me.print();
+
+  printf("reserving 200\n");
   long int* addr2 = me.reserve_space(200);
   me.print();
-
+  
+  printf("freeing address 1\n");
   me.free_space( addr1 );
   me.print();
+
+  printf("coalescing\n");
   me.coalesce_forward();
   me.print();
-
+  
+  printf("freeing address 2\n");
   me.free_space( addr2 );
   me.print();
-
+  
+  printf("coalescing\n");
   me.coalesce_forward();
   me.print();
   
